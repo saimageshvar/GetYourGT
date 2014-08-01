@@ -1,6 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @images.image_url.to_s %>
+<font face="Rockwell Bold"><strong><h1 align=center>Create your GT picture</h1></strong></font>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<br/>
+
+<br/>
+<font face="Rockwell" align=center><strong>Download Instructions</strong></font>
+<ol>
+	<li>Right click on the image</li>
+	<li>Choose "Save Image As"</li>
+	<li>Make sure you save as an image filetype</li>
+</ol>
+
+<br/>
+<br/>
+
+<%= image_tag(@images.image_url.to_s, :align =>"middle") %>
+
+<br/>
+<br/>
+
+<%= link_to 'New Image',root_path, class: "button" %> 
+
