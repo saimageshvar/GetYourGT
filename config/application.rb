@@ -28,10 +28,11 @@ module Coverpic
     # config.i18n.default_locale = :de
    # config.autoload_paths += "#{Rails.root}/app/uploaders"
     # For Foundation 5
-    config.assets.enabled = true
-    config.assets.paths << "#{Rails.root}/app/assets/images" 
-    config.assets.precompile += %w( vendor/modernizr )
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    config.serve_static_assets = true
+    #config.assets.enabled = true
+    #config.assets.paths << "#{Rails.root}/app/assets/images" 
+    #config.assets.precompile += %w( vendor/modernizr )
+    #config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   end
 end
