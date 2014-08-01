@@ -29,6 +29,7 @@ module Coverpic
    # config.autoload_paths += "#{Rails.root}/app/uploaders"
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   end
 end
