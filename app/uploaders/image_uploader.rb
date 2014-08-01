@@ -3,7 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -15,6 +15,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+
+  def stamp
+    manipulate! format: "png" do |source|
+      #thumb=source.resize_to_fill(230,230)
+      overlay_path = Rails.root.join("app/assets/images/Back.jpg")
+      overlay= Magick::Image.read(overlay_path).first
+      #overlay=overlay.resize_to_fill(1000, 1000)
+      overlay.composite!(source,612,74.5,Magick::OverCompositeOp)
+    end
+  end
+
+    process :resize_to_fill => [205,207.5]
+
+    process :stamp
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
